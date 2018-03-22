@@ -13,6 +13,9 @@ public class MemberValidator {
     }
 
     public void validate(Member member) throws DuplicateMemberIdException, InvalidNameException {
+        if(member.getId() < 0 || member.getId() > Integer.MAX_VALUE) {
+            throw new DuplicateMemberIdException("Invalid ID");
+        }
         if(memberRepository.hasMemberWithId(member.getId())){
             throw new DuplicateMemberIdException("A member with this id was already added");
         }

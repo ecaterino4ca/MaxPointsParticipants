@@ -16,4 +16,8 @@ public class MemberController {
     public void addMember(Member member) throws DuplicateMemberIdException, InvalidNameException {
         memberService.addMember(member);
     }
+
+    public void updateFiles() {
+        memberService.updateFiles();
+    }
 } 

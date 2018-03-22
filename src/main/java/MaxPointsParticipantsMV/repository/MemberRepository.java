@@ -13,7 +13,13 @@ import java.util.List;
 public class MemberRepository {
 	private List<Member> members = new ArrayList<>();
 	private MemberValidator memberValidator;
-	private final static String FILE_NAME = "membersF.txt";
+	private String FILE_NAME = "membersF.txt";
+
+	public MemberRepository(String FILE_NAME) {
+		memberValidator = new MemberValidator(this);
+		this.FILE_NAME = FILE_NAME;
+		initializeRepository();
+	}
 
 	public MemberRepository() {
 		memberValidator = new MemberValidator(this);
@@ -22,7 +28,10 @@ public class MemberRepository {
 
 	 public void addMember(Member member){
 		 members.add(member);
-		 addToFile(member);
+	 }
+
+	 public void addToFileAllMembers(){
+		members.forEach(this::addToFile);
 	 }
 
 	 private void initializeRepository(){

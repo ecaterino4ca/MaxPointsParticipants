@@ -18,4 +18,8 @@ public class MemberService {
         memberValidator.validate(member);
         memberRepository.addMember(member);
     }
+
+    public void updateFiles() {
+        memberRepository.addToFileAllMembers();
+    }
 }
