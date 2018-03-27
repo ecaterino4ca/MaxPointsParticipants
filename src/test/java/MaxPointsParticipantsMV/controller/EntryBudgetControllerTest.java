@@ -25,6 +25,7 @@ public class EntryBudgetControllerTest extends TestCase {
         super.setUp();
     }
 
+    @Test
     public void testAddBudgetEntrySuccess() throws InvalidTypeException, InvalidBudgetValueException {
         Integer size = entryBudgetRepository.size();
         entryBudgetService.addEntry(new EntryBudget("Income", 60, 2));
