@@ -1,8 +1,6 @@
 package MaxPointsParticipantsMV.controller;
 
-import MaxPointsParticipantsMV.exceptions.DuplicateMemberIdException;
 import MaxPointsParticipantsMV.exceptions.InvalidBudgetValueException;
-import MaxPointsParticipantsMV.exceptions.InvalidNameException;
 import MaxPointsParticipantsMV.exceptions.InvalidTypeException;
 import MaxPointsParticipantsMV.model.BudgetEntryValidator;
 import MaxPointsParticipantsMV.model.EntryBudget;
