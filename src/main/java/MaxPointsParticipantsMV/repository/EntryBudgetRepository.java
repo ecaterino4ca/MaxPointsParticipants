@@ -4,6 +4,8 @@ import MaxPointsParticipantsMV.exceptions.InvalidBudgetValueException;
 import MaxPointsParticipantsMV.exceptions.InvalidTypeException;
 import MaxPointsParticipantsMV.model.BudgetEntryValidator;
 import MaxPointsParticipantsMV.model.EntryBudget;
+import MaxPointsParticipantsMV.model.Member;
+import MaxPointsParticipantsMV.model.MemberValidator;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,7 +16,13 @@ public class EntryBudgetRepository {
 
     private List<EntryBudget> butgetEntries = new ArrayList<>();
     private BudgetEntryValidator entryValidator;
-    private final static String FILE_NAME = "budgetF.txt";
+    private String FILE_NAME = "budgetF.txt";
+
+    public EntryBudgetRepository(String FILE_NAME) {
+        entryValidator = new BudgetEntryValidator();
+        this.FILE_NAME = FILE_NAME;
+        initializeRepository();
+    }
 
     public EntryBudgetRepository() {
         entryValidator = new BudgetEntryValidator();
@@ -60,5 +68,9 @@ public class EntryBudgetRepository {
         } catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public Integer size(){
+        return butgetEntries.size();
     }
 }
